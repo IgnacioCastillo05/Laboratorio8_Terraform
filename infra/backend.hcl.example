@@ -1,0 +1,4 @@
+resource_group_name  = "rg-tfstate-lab8"
+storage_account_name = "sttfstate<UNICO>"
+container_name       = "tfstate"
+key                  = "lab8/terraform.tfstate"

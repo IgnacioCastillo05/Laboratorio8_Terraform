@@ -1,0 +1,69 @@
+# === Terraform ===
+# Estado local y backups
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Plan files
+*.tfplan
+*.tfplan.*
+
+# Variables sensibles
+*.tfvars
+*.tfvars.json
+!env/dev.tfvars        # Mantener solo el ejemplo no sensible
+!env/prod.tfvars.example
+
+# Archivos de backend locales
+backend.hcl
+*.hcl.local
+
+# Carpeta de caché local
+.terraform/
+.terraform.lock.hcl
+
+# Logs y outputs
+logs/
+*.log
+output.json
+output.txt
+
+# === Visual Studio Code / IDE ===
+.vscode/
+.idea/
+*.iml
+
+# === macOS / Linux / Windows ===
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# === GitHub Actions / CI ===
+# No ignorar workflows pero sí artefactos locales
+*.zip
+*.tar.gz
+*.tgz
+*.bak
+
+# === Python / Aux scripts (opcional) ===
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# === Seguridad ===
+# Llaves privadas y credenciales
+*.pem
+*.key
+*.crt
+*.cer
+*.pfx
+*.secret
+*.json
+!azurerm_provider_config.json.example
