@@ -1,13 +1,3 @@
-variable "resource_group_name" { type = string }
-variable "location" { type = string }
-variable "prefix" { type = string }
-variable "admin_username" { type = string }
-variable "ssh_public_key" { type = string }
-variable "subnet_id" { type = string }
-variable "vm_count" { type = number }
-variable "cloud_init" { type = string }
-variable "tags" { type = map(string) }
-
 resource "azurerm_network_interface" "nic" {
   count               = var.vm_count
   name                = "${var.prefix}-nic-${count.index}"
@@ -52,11 +42,4 @@ resource "azurerm_linux_virtual_machine" "vm" {
   }
 
   tags = var.tags
-}
-
-output "vm_names" {
-  value = [for v in azurerm_linux_virtual_machine.vm : v.name]
-}
-output "nic_ids" {
-  value = [for n in azurerm_network_interface.nic : n.id]
 }
